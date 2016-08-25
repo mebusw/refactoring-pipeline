@@ -7,9 +7,9 @@ class Author {
         var result = new List<String> ();
         var loopStart = authors
             .Where(a => a.Company == company)
-            .Select(a => a.TwitterHandle); /***/
+            .Select(a => a.TwitterHandle)
+            .Where (h => h != null); /***/
         foreach (string handle in loopStart) {
-            if (handle != null)
                 result.Add(handle);
         }
         return result;
