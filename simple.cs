@@ -5,13 +5,12 @@ class Author {
 
     static public IEnumerable<String> TwitterHandles(IEnumerable<Author> authors, string company) {
         var result = new List<String> ();
-        var loopStart = authors; /***/
+        var loopStart = authors
+            .Where(a => a.Company == company); /***/
         foreach (Author a in loopStart) {
-            if (a.Company == company) {
                 var handle = a.TwitterHandle;
                 if (handle != null)
                     result.Add(handle);
-            }
         }
         return result;
     }
