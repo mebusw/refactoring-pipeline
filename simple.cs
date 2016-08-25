@@ -6,11 +6,11 @@ class Author {
     static public IEnumerable<String> TwitterHandles(IEnumerable<Author> authors, string company) {
         var result = new List<String> ();
         var loopStart = authors
-            .Where(a => a.Company == company); /***/
-        foreach (Author a in loopStart) {
-                var handle = a.TwitterHandle;
-                if (handle != null)
-                    result.Add(handle);
+            .Where(a => a.Company == company)
+            .Select(a => a.TwitterHandle); /***/
+        foreach (string handle in loopStart) {
+            if (handle != null)
+                result.Add(handle);
         }
         return result;
     }
