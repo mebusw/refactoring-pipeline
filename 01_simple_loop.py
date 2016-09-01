@@ -1,3 +1,4 @@
+#! encoding=utf8
 from pipe import *
 
 class Author(object):
@@ -26,6 +27,12 @@ assert ['bill', 'jacky'] == Author.TwitterHandles([a1,a2,a3], 'uperform')
 
 
 
+
+#############
+# 抽取变量
+# filter, map, filter
+# 调整管道的顺序，无副作用
+
         # return filter(lambda h: h != None, 
         #             map(lambda a: a.TwitterHandle, 
         #                 filter(lambda a: a.Company == company, 
@@ -33,3 +40,4 @@ assert ['bill', 'jacky'] == Author.TwitterHandles([a1,a2,a3], 'uperform')
 
 
         # return authors | where(lambda a: a.Company == company) | select(lambda a: a.TwitterHandle) | where(lambda handle: handle != None) | as_list
+        
