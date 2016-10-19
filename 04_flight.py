@@ -58,7 +58,7 @@ print airportData()
 assert airportData() == {'LAX': {'cancellationRate': 0.3333333333333333, 'meanDelay': 1.5}, 'PEK': {'cancellationRate': 0.0, 'meanDelay': 2.0}}
 
 ################
-# working = _.groupBy(data, r => r.dest)
+# data | groupby(lambda x:x['dest']) | select(lambda y: (y[0],(y[1]| as_list))) | as_list
 # map `Count`变量记录对每个目的地机场有多少飞行记录。  rows.length,
 # 处理取消业务变量 cancellations: rows.filter(r => r.cancelled).length,
 # 提取方法

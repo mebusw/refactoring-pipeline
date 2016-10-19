@@ -75,7 +75,7 @@ assert note.error == 'duplicate schemes: agile\nmissing schemes: dsdm'
     # 删除条件判断中不需要的分支
     # 提取变量, filter(void)
     # map(scheme)
-    # 寻找重复部分 group_by() | filter(size>1)
+    # 寻找重复部分 self.ids | groupby(lambda x:x) | select(lambda y: (y[0],(y[1]| count))) | where(lambda z: z[1] > 1)
     # 提取方法 duplicates()
 # 重构所有必需模式的检查 check_all_required_schemes()
     # 提取变量, filter(void)
