@@ -45,7 +45,7 @@ class Person(object):
                         found_required.append(req)
                         required_schemes.remove(req)
                         continue
-            used.append(id.scheme)
+                .append(id.scheme)
         
         if len(dups) > 0:
             note.add_error("duplicate schemes: " + ", ".join(dups) + "\n")
@@ -72,7 +72,6 @@ assert note.error == 'duplicate schemes: agile\nmissing schemes: dsdm'
 # 提取方法, 拆分循环
 # 重复循环，删除双重更新： check_no_duplicate_ids， check_all_required_schemes
 # 对非重复检查进行重构  check_no_duplicate_ids()
-    # 删除条件判断中不需要的分支
     # 提取变量, filter(void)
     # map(scheme)
     # 寻找重复部分 self.ids | groupby(lambda x:x) | select(lambda y: (y[0],(y[1]| count))) | where(lambda z: z[1] > 1)
@@ -80,13 +79,13 @@ assert note.error == 'duplicate schemes: agile\nmissing schemes: dsdm'
 # 重构所有必需模式的检查 check_all_required_schemes()
     # 提取变量, filter(void)
     # map(scheme)
-    # 捕获那些既在required_schemes列表中并且又存在于来自于ID的那些模式  => }集合交集  found_required = schemes & required_schemes
-    # found_required其实是僵尸变量
-    # 移除向参数的赋值, 不修改原始变量  missing_schemes = required_schemes.dup
-    # 差集操作 missing_schemes = required_schemes - schemes
-    # 字符串连接操作
+    # 捕获那些既在required_schemes列表中并且又存在于来自于ID的那些模式  => 集合交集  found_required = schemes & required_schemes
+    # 发现found_required其实是僵尸变量
+    # 移除向参数的赋值, 不修改原始变量，改用副本  missing_schemes = set(required_schemes)
+    # 差集操作 missing_schemes = set(required_schemes) - set(schemes)
+    # 字符串连接操作 '. 'join()
 # 整合两个方法
-    # 提取方法 identity_schemes
+    # 提取公共方法 identity_schemes
     # 内联临时变量
     # 转变为单行条件语句
 

@@ -39,23 +39,25 @@ def calc():
         possPref.isPreferred = True
         checkedRegions.Add(r)
 
-calc()        
+calc()
 
 
 
 ##################
 #抽取变量
 # map  循环的第一部分。它有一个控制变量checkedRegions, 循环语句使用这个变量来标记已经处理过的`regions`来避免多次处理。 我感觉到了一些不好的味道，但是它也建议loop变量o1只是用于获取`region r`的一个垫脚石。
-# checkedRegions => distinct
+# checkedRegions => distinct  或  list(set(arr))
 # possPref  内层循环=> 提取方法 possiblePreference()
     # break => return
-    # FirstOrDefault(o => o.isPreferred);
+    # allOfferings.FirstOrDefault(o => o.isPreferred);
     # allOfferings.LastOrDefault(o => o.isMatch);
-    # First();
+    # allOfferings.First();
     # 重命名
-    # 空结合操作符`??` / OR
+    # 空结合操作符`??` 或 or
 # 回到外层  Select(x->possiblePreference())
-
+#
+#############################
+#
 # equipment.AllOfferings()
 #     .Select(o => o.Region)
 #     .Distinct()
