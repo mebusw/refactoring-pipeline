@@ -45,7 +45,7 @@ class Person(object):
                         found_required.append(req)
                         required_schemes.remove(req)
                         continue
-                .append(id.scheme)
+                used.append(id.scheme)
         
         if len(dups) > 0:
             note.add_error("duplicate schemes: " + ", ".join(dups) + "\n")
